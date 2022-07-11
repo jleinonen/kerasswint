@@ -11,7 +11,7 @@ setuptools.setup(
     description="Keras implementations of Swin Transformers",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    #url="https://github.com/meteoswiss-mdr/coalition-4-dl",
+    url="https://github.com/jleinonen/kerasswint",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
