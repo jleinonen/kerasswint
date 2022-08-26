@@ -6,6 +6,7 @@ import tensorflow as tf
 from tensorflow.keras.layers import Layer, Dense, Activation, Dropout
 from tensorflow.keras.layers import LayerNormalization
 
+
 class WindowAttentionBase(Layer, ABC):
     def __init__(
         self,
@@ -318,4 +319,3 @@ class PatchExpandBase(Layer):
             axis=0
         )
         return tf.reshape(p, shape)
-

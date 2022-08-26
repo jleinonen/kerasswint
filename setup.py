@@ -7,7 +7,6 @@ setuptools.setup(
     name="kerasswint",
     version="0.0.1",
     author="Jussi Leinonen",
-    author_email="jussi.leinonen@meteoswiss.ch",
     description="Keras implementations of Swin Transformers",
     long_description=long_description,
     long_description_content_type="text/markdown",

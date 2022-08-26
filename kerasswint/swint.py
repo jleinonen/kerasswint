@@ -49,7 +49,7 @@ class WindowAttention2D(WindowAttentionBase):
         (height, width) = (shape[1], shape[2])
         if any(self.shift):
             # calculate attention mask for SW-MSA
-            img_mask = np.zeros((1, height, width, 1))  # 1 H W 1
+            img_mask = np.zeros((1, height, width, 1))
             h_slices = (slice(0, -self.window_size[0]),
                         slice(-self.window_size[0], -self.shift[0]),
                         slice(-self.shift[0], None))

@@ -82,14 +82,6 @@ class TemporalMultiheadAttention(Layer):
 
     #@tf.function
     def call(self, inputs):
-        """
-        X: [b, s, i, j, c]
-        K: [b, s, i, j, h, d]
-        V: [b, s, i, j, h, d]
-        Q: [b, t, i, j, h, d]
-        H: [b, i, j, h, v, w]
-        Y: [b, i, j, t, c]
-        """
         (X, Y) = inputs
         (K, V, Q) = self.get_KVQ(X, Y)
         Y = self.temporal_attention(K, V, Q)
