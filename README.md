@@ -1,9 +1,9 @@
 ## Swin Transformer implementations
 
 This is a set of unified Keras/TensorFlow implementations of:
-* Swin Transformer
-* Swin Transformer V2
-* 3D (Video) Swin Transformer
+* Swin Transformer (Liu et al. 2021, https://arxiv.org/abs/2103.14030)
+* Swin Transformer V2 (Liu et al. 2022, https://arxiv.org/abs/2111.09883)
+* 3D (Video) Swin Transformer (Liu et al. 2021, https://arxiv.org/abs/2106.13230)
 
 There is also an implementation of a global transformer along the temporal axis.
 
