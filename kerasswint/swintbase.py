@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from collections.abc import Iterable
+from itertools import product
 
 import numpy as np
 import tensorflow as tf
@@ -72,12 +73,13 @@ class WindowAttentionBase(Layer, ABC):
         KVQ = self.KVQ(U)
         shape = [
             -1,
-            self.num_heads,
             self.window_vol,
+            self.num_heads,
             self.dim_head,
             self.num_KVQ_conv
         ]
         KVQ = tf.reshape(KVQ, shape)
+        KVQ = tf.transpose(KVQ, (0,2,1,3,4))
         return tf.unstack(KVQ, axis=-1)
 
     @abstractmethod
@@ -268,11 +270,11 @@ class PatchMergeBase(Layer, ABC):
         s = self.size
         ndim = self.spatial_dims()
 
-        for ind in product(range(d) for d in s)):
+        for ind in product(*(range(d) for d in s)):
             slices = (slice(None),) + \
                 tuple(slice(ind[i], None, s[i]) for i in range(ndim)) + \
                 (slice(None),)
-            p = p + p[slices]
+            p = p + [x[slices]]
 
         p = tf.concat(p, axis=-1)
         return self.reduction(p)
